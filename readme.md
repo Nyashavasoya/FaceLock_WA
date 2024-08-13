@@ -13,7 +13,7 @@ First, clone the repository to your local machine:
 ```bash
 git clone https://github.com/Nyashavasoya/FaceLock_WA.git
 cd FaceLock_WA
-cd WAscript
+cd WAScript
 mkdir data
 ```
 
