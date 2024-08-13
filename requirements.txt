@@ -1,0 +1,6 @@
+python-dotenv
+psutil
+numpy
+face-recognition
+opencv-python
+pygetwindow
