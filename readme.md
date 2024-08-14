@@ -26,8 +26,16 @@ Place 2-3 images of the trusted user in the `data` folder. These images will be 
 Make sure you have Python 3.8 installed. Then, set up a virtual environment and activate it:
 
 ```bash
-python3.8 -m venv venv
-source venv/Scripts/activate  # On Windows
+python3.8 -m venv .venv
+.\.venv\Scripts\activate
+```
+### if this throws error here is the detailed way to deal with it 
+Check for python3.8 is already there in your system or not if it isnot then [click here to download](https://www.python.org/downloads/release/python-380/)
+After downloading install python3.8 and try to remember the file of installation 
+Here is the command to activate venv with most common path 
+```bash
+C:\Users\<UserName>\AppData\Local\Programs\Python\Python38\python.exe -m venv .venv
+.\.venv\Scripts\activate
 ```
 
 ## 4. Install Dependencies
