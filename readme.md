@@ -30,9 +30,9 @@ python3.8 -m venv .venv
 .\.venv\Scripts\activate
 ```
 ### if this throws error here is the detailed way to deal with it 
-Check for python3.8 is already there in your system or not if it isnot then [click here to download](https://www.python.org/downloads/release/python-380/)
-After downloading install python3.8 and try to remember the file of installation 
-Here is the command to activate venv with most common path 
+Check for python3.8 is already there in your system or not if it isnot then [click here to download](https://www.python.org/downloads/release/python-380/) <br>
+After downloading install python3.8 and try to remember the file of installation <br>
+Here is the command to activate venv with most common path <br>
 ```bash
 C:\Users\<UserName>\AppData\Local\Programs\Python\Python38\python.exe -m venv .venv
 .\.venv\Scripts\activate
