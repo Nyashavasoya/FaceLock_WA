@@ -3,39 +3,27 @@ import face_recognition
 import numpy as np
 import os
 import time
+import pickle
 import logging
 
-# Set up logging
-logging.basicConfig(filename='face_recognition.log', level=logging.INFO,
+# Set up logging to use the same file as encode_faces.py
+logging.basicConfig(filename='combined.log', level=logging.INFO,
                     format='%(asctime)s - %(levelname)s - %(message)s')
-logging.info("------------------New logging session ------------------")
+
+# Add a separator to indicate a new session
+logging.info("------------------New logging session for face recognition ------------------")
+
 logging.info("Face recognition script started...")
 
-def load_images_from_folder(folder):
-    images = []
-    for filename in os.listdir(folder):
-        img = cv2.imread(os.path.join(folder, filename))
-        if img is not None:
-            images.append(img)
-    return images
-
-def encode_faces(image_folder):
-    encodings = []
-    images = load_images_from_folder(image_folder)
-    for img in images:
-        logging.info("Encoding image...")
-        rgb_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-        try:
-            # Find all face encodings in the image
-            img_encodings = face_recognition.face_encodings(rgb_img)
-            encodings.extend(img_encodings)
-        except IndexError:
-            logging.warning("No face found in the image.")
+def load_encodings(encodings_file):
+    """Load face encodings from a file."""
+    with open(encodings_file, 'rb') as file:
+        encodings = pickle.load(file)
     return encodings
 
 # Load your face encodings
 logging.info("Loading face encodings...")
-encodings = encode_faces("data")
+encodings = load_encodings("face_encodings.pkl")
 
 # Initialize the webcam
 logging.info("Initializing webcam...")

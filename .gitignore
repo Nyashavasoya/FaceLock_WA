@@ -1,5 +1,6 @@
 data
 .env
 .venv
-runner.log
-face_recognition.log
+runner_log.log
+combined.log
+face_encodings.pickle

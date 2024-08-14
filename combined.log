@@ -1,0 +1,32 @@
+2024-08-14 23:19:43,203 - INFO - ------------------New logging session for runner ------------------
+2024-08-14 23:19:43,203 - INFO - Monitoring started.
+2024-08-14 23:19:44,184 - INFO - WhatsApp.exe is running.
+2024-08-14 23:19:44,193 - INFO - WhatsApp window minimized.
+2024-08-14 23:19:44,193 - INFO - WhatsApp.exe is running. Verifying user...
+2024-08-14 23:19:44,193 - INFO - Activating virtual environment using D:\cybersecurity\automation_files\2_FaceLock_WA\FaceLock_WA\WAScript\.venv\Scripts\Activate.ps1.
+2024-08-14 23:19:44,193 - INFO - Running face recognition script.
+2024-08-14 23:20:20,567 - INFO - ------------------New logging session for encoding ------------------
+2024-08-14 23:21:49,046 - INFO - ------------------New logging session for runner ------------------
+2024-08-14 23:21:49,047 - INFO - Monitoring started.
+2024-08-14 23:21:50,232 - INFO - WhatsApp.exe is running.
+2024-08-14 23:21:50,233 - INFO - WhatsApp window minimized.
+2024-08-14 23:21:50,234 - INFO - WhatsApp.exe is running. Verifying user...
+2024-08-14 23:21:50,234 - INFO - Activating virtual environment using D:\cybersecurity\automation_files\2_FaceLock_WA\FaceLock_WA\WAScript\.venv\Scripts\Activate.ps1.
+2024-08-14 23:21:50,234 - INFO - Running face recognition script.
+2024-08-14 23:22:02,235 - INFO - returning to monitoring
+2024-08-14 23:22:02,252 - INFO - WhatsApp.exe is running.
+2024-08-14 23:22:02,275 - INFO - WhatsApp window restored.
+2024-08-14 23:22:02,275 - INFO - WhatsApp window maximized.
+2024-08-14 23:22:02,275 - INFO - waiting for 30 minutes
+2024-08-14 23:22:30,435 - INFO - ------------------New logging session for runner ------------------
+2024-08-14 23:22:30,436 - INFO - Monitoring started.
+2024-08-14 23:22:31,658 - INFO - WhatsApp.exe is running.
+2024-08-14 23:22:31,666 - INFO - WhatsApp window minimized.
+2024-08-14 23:22:31,667 - INFO - WhatsApp.exe is running. Verifying user...
+2024-08-14 23:22:31,667 - INFO - Activating virtual environment using D:\cybersecurity\automation_files\2_FaceLock_WA\FaceLock_WA\WAScript\.venv\Scripts\Activate.ps1.
+2024-08-14 23:22:31,667 - INFO - Running face recognition script.
+2024-08-14 23:22:44,106 - INFO - returning to monitoring
+2024-08-14 23:22:44,159 - INFO - WhatsApp.exe is running.
+2024-08-14 23:22:44,161 - INFO - WhatsApp window restored.
+2024-08-14 23:22:44,163 - INFO - WhatsApp window maximized.
+2024-08-14 23:22:44,163 - INFO - waiting for 30 minutes
