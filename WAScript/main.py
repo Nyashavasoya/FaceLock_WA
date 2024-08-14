@@ -7,7 +7,7 @@ import pickle
 import logging
 
 # Set up logging to use the same file as encode_faces.py
-logging.basicConfig(filename='combined.log', level=logging.INFO,
+logging.basicConfig(filename='detection.log', level=logging.INFO,
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Add a separator to indicate a new session

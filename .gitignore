@@ -2,5 +2,5 @@ data
 .env
 .venv
 runner_log.log
-combined.log
+detection.log
 face_encodings.pickle
