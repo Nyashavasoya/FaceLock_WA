@@ -48,7 +48,8 @@ pip install -r requirements.txt
 
 ## 5. Run the Script
 
-After installing the dependencies, you can run the `runner.py` script:
+After installing the dependencies,First run encode_faces.py in WAScrpt file then  you can run the `runner.py` script:
+
 
 ```bash
 python runner.py
