@@ -52,6 +52,7 @@ After installing the dependencies,First run encode_faces.py in WAScrpt file then
 
 
 ```bash
+python .\WAScript\encode_faces.py
 python runner.py
 ```
 
