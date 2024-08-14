@@ -14,10 +14,12 @@ PROCESS_NAME = os.getenv('PROCESS_NAME')
 SCRIPT_TO_RUN = os.getenv('SCRIPT_TO_RUN')
 VENV_PATH = os.getenv('VENV_PATH')
 
-# Set up logging
-logging.basicConfig(filename='runner.log', level=logging.INFO,
+# Set up logging to use the same file as encode_faces.py and main.py
+logging.basicConfig(filename='runner_log.log', level=logging.INFO,
                     format='%(asctime)s - %(levelname)s - %(message)s')
-logging.info("------------------New logging session ------------------")
+
+# Add a separator to indicate a new session
+logging.info("------------------New logging session for runner ------------------")
 
 def is_process_running(process_name):
     """Check if a process with the given name is running."""
@@ -67,7 +69,6 @@ def main():
             logging.info(f"{PROCESS_NAME} is running. Verifying user...")
             run_face_recognition_script()
             # Wait a bit before showing the window again
-            # time.sleep(10)
             logging.info("returning to monitoring")
             if not is_process_running(PROCESS_NAME):
                 logging.info(f"{PROCESS_NAME} is no longer running.")
