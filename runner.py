@@ -5,14 +5,15 @@ import subprocess
 from dotenv import load_dotenv
 import pygetwindow as gw
 import logging
+import ctypes
 
 # Load environment variables from .env file
 load_dotenv()
 
 # Retrieve environment variables
-PROCESS_NAME = os.getenv('PROCESS_NAME')
-SCRIPT_TO_RUN = os.getenv('SCRIPT_TO_RUN')
-VENV_PATH = os.getenv('VENV_PATH')
+PROCESS_NAME = os.getenv('PROCESS_NAME')  # Should be "WhatsApp.exe"
+SCRIPT_TO_RUN = os.getenv('SCRIPT_TO_RUN')  # Path to face recognition script
+VENV_PATH = os.getenv('VENV_PATH')  # Path to the virtual environment
 
 # Set up logging to use the same file as encode_faces.py and main.py
 logging.basicConfig(filename='runner_log.log', level=logging.INFO,
@@ -43,39 +44,39 @@ def run_face_recognition_script():
     logging.info("Running face recognition script.")
     subprocess.run(full_command, shell=True, check=True)
 
-def hide_whatsapp_window():
-    """Hide the WhatsApp window."""
-    windows = gw.getWindowsWithTitle("WhatsApp")
-    if windows:
-        window = windows[0]
-        window.minimize()  # Minimize the window to hide it
-        logging.info("WhatsApp window minimized.")
+def hide_window(hwnd):
+    """Hide the window using hwnd."""
+    ctypes.windll.user32.ShowWindow(hwnd, 0)  # Hide the window
 
-def show_whatsapp_window():
-    """Show the WhatsApp window."""
+def show_window(hwnd):
+    """Restore the window using hwnd."""
+    ctypes.windll.user32.ShowWindow(hwnd, 1)  # Restore the window
+
+def check_whatsapp_running():
+    """Check if WhatsApp is running and return its window handle."""
     windows = gw.getWindowsWithTitle("WhatsApp")
     if windows:
-        window = windows[0]
-        window.restore()  # Restore the window to make it visible
-        logging.info("WhatsApp window restored.")
-        window.maximize()
-        logging.info("WhatsApp window maximized.")
+        hwnd = windows[0]._hWnd
+        return hwnd
+    return None
 
 def main():
     logging.info("Monitoring started.")
     while True:
-        if is_process_running(PROCESS_NAME):
-            hide_whatsapp_window()  # Hide WhatsApp window before verification
-            logging.info(f"{PROCESS_NAME} is running. Verifying user...")
-            run_face_recognition_script()
-            # Wait a bit before showing the window again
-            logging.info("returning to monitoring")
-            if not is_process_running(PROCESS_NAME):
-                logging.info(f"{PROCESS_NAME} is no longer running.")
-                continue
-            show_whatsapp_window()  # Show WhatsApp window only if face is verified
-            logging.info("waiting for 30 minutes")
-            time.sleep(30*60)  # Check every 30 minutes
+        hwnd = check_whatsapp_running()
+        if hwnd:
+            hide_window(hwnd)  # Hide WhatsApp window before verification
+            logging.info("WhatsApp is running. Verifying user...")
+            run_face_recognition_script()  # Run face recognition
+
+            # After face recognition, if WhatsApp is still running, restore the window
+            if is_process_running(PROCESS_NAME):
+                logging.info("Face recognized! Restoring WhatsApp window.")
+                show_window(hwnd)  # Show WhatsApp window if face is verified
+                logging.info("Waiting for 30 minutes before re-verification.")
+                time.sleep(30 * 60)  # Check every 30 minutes
+            else:
+                logging.info("WhatsApp is no longer running.")
         else:
             logging.info(f"{PROCESS_NAME} is not running.")
             time.sleep(5)  # Check every 5 seconds
