@@ -5,6 +5,7 @@ import subprocess
 from dotenv import load_dotenv
 import pygetwindow as gw
 import logging
+import ctypes
 
 # Load environment variables from .env file
 load_dotenv()
@@ -58,6 +59,12 @@ def show_whatsapp_window():
         logging.info("WhatsApp window restored.")
         window.maximize()
         logging.info("WhatsApp window maximized.")
+
+def hide_window(hwnd):
+    ctypes.windll.user32.ShowWindow(hwnd, 0)  # Hide the window
+
+def show_window(hwnd):
+    ctypes.windll.user32.ShowWindow(hwnd, 1)  # Restore the window
 
 def main():
     logging.info("Monitoring started.")
